@@ -1,5 +1,13 @@
 import { NONE } from "./constants";
-import { ResultErr, ResultOk, Result, Pattern, Fn } from "./types";
+import {
+  ResultErr,
+  ResultOk,
+  Result,
+  Pattern,
+  Fn,
+  InferResultErr,
+  InferResultOk,
+} from "./types";
 
 export const ok = <$Ok>(value: $Ok): ResultOk<$Ok> => [value, NONE];
 
@@ -11,9 +19,11 @@ export const isOk = <$Result extends Result>(result: $Result) =>
 export const isErr = <$Result extends Result>(result: $Result) =>
   result[0] === NONE;
 
-export const getOk = <$Result extends Result>(result: $Result) => result[0];
+export const getOk = <$Result extends Result>(result: $Result) =>
+  result[0] as InferResultOk<$Result>;
 
-export const getErr = <$Result extends Result>(result: $Result) => result[1];
+export const getErr = <$Result extends Result>(result: $Result) =>
+  result[1] as InferResultErr<$Result>;
 
 export function match<$Input, $Outputs extends unknown[]>(
   input: $Input,
