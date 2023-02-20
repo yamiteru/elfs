@@ -1,6 +1,6 @@
 {
-  "name": "ts-package",
-  "version": "0.0.1",
+  "name": "elfs",
+  "version": "0.0.2",
   "source": "src/index.ts",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",

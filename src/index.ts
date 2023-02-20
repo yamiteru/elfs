@@ -1,1 +1,3 @@
-export const add = (...n: number[]) => n.reduce((acc, v) => acc + v, 0);
+export * from "./constants";
+export * from "./types";
+export * from "./utils";
