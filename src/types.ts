@@ -21,11 +21,11 @@ export type Pattern<$Input, $Output> = [
 
 export type None = typeof NONE;
 
-export type ResultOk<$Ok = unknown> = [ok: $Ok, err: None];
+export type ResultOk<$Ok = any> = [ok: $Ok, err: None];
 
-export type ResultErr<$Err = unknown> = [ok: None, err: $Err];
+export type ResultErr<$Err = any> = [ok: None, err: $Err];
 
-export type Result<$Ok = unknown, $Err = unknown> = Either<
+export type Result<$Ok = any, $Err = any> = Either<
   [ResultOk<$Ok>, ResultErr<$Err>]
 >;
 
