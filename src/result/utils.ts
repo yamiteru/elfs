@@ -1,5 +1,6 @@
-import { NONE } from "./constants";
-import { ResultErr, ResultOk, Result, Pattern, Fn } from "./types";
+import { Fn } from "../types";
+import { NONE } from "../constants";
+import { Pattern, Patterns, Result, ResultErr, ResultOk } from "./types";
 
 export const ok = <$Ok>(value: $Ok): ResultOk<$Ok> => [value, NONE];
 
@@ -19,9 +20,7 @@ export const getErr = <$Value, $Error>(result: Result<$Value, $Error>) =>
 
 export function match<$Input, $Outputs extends unknown[]>(
   input: $Input,
-  ...patterns: {
-    [$Key in keyof $Outputs]: Pattern<$Input, $Outputs[$Key]>;
-  }
+  ...patterns: Patterns<$Input, $Outputs>
 ): $Outputs[number] {
   const length = patterns.length;
 
