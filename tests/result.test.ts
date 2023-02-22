@@ -17,7 +17,7 @@ describe("result", () => {
     });
   });
 
-  describe("is", () => {
+  describe("check", () => {
     it("should return true if Result is Ok", () => {
       const result = ok(1);
 
